@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListCheckOff'>
+<head>
+    <meta charset="UTF-8"> 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <title>Shopping List Check Off</title>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center app-name">
+        <h1>Shopping List Check Off</h1>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-md-6 no-gutters">
+            <div class="leftside d-flex justify-content-center align-items-center"> <!--LEFT SIDE-->
+                 <!--List1-->
+                <div id="list1" ng-controller='ToBuyController as toBuyList'>
+                    <h3>To buy items</h3> 
+                    <ol>
+                        <li ng-repeat="item in toBuyList.items">Buy {{ item.quantity + " " + item.name }}
+                            <button class="btn btn-dark" ng-click="toBuyList.boughtItem($index,item.name,item.quantity);">Bought</button>
+                        </li>
+                    </ol>
+                    <div class="ok">{{ toBuyList.toBuyEmpty}}</div>
+                </div>
+            </div><!--END LEFT SIDE-->
+        </div>
+        <div class="col-md-6 no-gutters">
+            <div class="rightside d-flex justify-content-center align-items-center"> <!--RIGHT SIDE-->
+                <!--List2-->
+                <div id="list2" ng-controller='AlreadyBoughtController as alreadyBoughtList'>
+                    <h3>Already bought items</h3>
+                    <ul>
+                        <li ng-repeat="item in alreadyBoughtList.items">Bought {{ item.quantity + " " + item.name }}</li>
+                    </ul>
+                    <div>{{ alreadyBoughtList.boughtEmpty}}</div>
+                </div>
+            </div> <!--END RIGHT SIDE-->
+        </div>
+    </div>
+</body>
+</html>

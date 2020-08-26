@@ -1,0 +1,34 @@
+.leftside, .rightside{
+    height: 100vh;
+    width: 100%;
+}
+
+@media screen and (min-width:768px){
+    .leftside, .rightside{
+        height: 100vh;
+    }
+}
+
+.leftside {
+    background-color: #0d7548;
+}
+
+.rightside{
+    background-color: #052f71;
+}
+
+body{
+    color: #ffffff;
+}
+
+.app-name{
+    background-color: #000000;
+}
+
+ul{
+    list-style: none;
+}
+
+.ok{
+    font-size: 1.2rem;
+}
